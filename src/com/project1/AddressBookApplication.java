@@ -22,14 +22,19 @@ public class AddressBookApplication {
             switch(selection) {
                 case 'a':
                     ab.readFromFile();
+                    break;
                 case 'b':
                     addEntry(ab);
+                    break;
                 case 'c':
                     ab.remove();
+                    break;
                 case 'd':
                     ab.find();
+                    break;
                 case 'e':
                     ab.list();
+                    break;
                 case 'f':
                     break;
             }
@@ -83,7 +88,7 @@ public class AddressBookApplication {
         ab.add(entry);
 
         System.out.println("Thank you! The following contact has been added to your address book: \n");
-        entry.toString();
+        System.out.println(entry.toString());
     }
 
 }

@@ -17,8 +17,9 @@ public class AddressBook {
         addressEntryList.sort(Comparator.comparing(AddressEntry::getFirstName));
 
         // Iterate through AddressEntry and print out the data
-        for (AddressEntry item : addressEntryList) {
-            System.out.println(item.toString());
+        for (int i = 1; i <= addressEntryList.size(); i++) {
+            System.out.print(i + ": ");
+            System.out.println(addressEntryList.get(i-1).toString());
         }
     }
 
