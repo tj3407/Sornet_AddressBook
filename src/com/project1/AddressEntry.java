@@ -30,15 +30,11 @@ public class AddressEntry {
 
     @Override
     public String toString() {
-        return "First Name: " + firstName +
-                "\nLast Name: " + lastName +
-                "\nStreet: " + street +
-                "\nCity: " + city +
-                "\nState: " + state +
-                "\nZip: " + zip +
-                "\nPhone: " + phone +
-                "\nEmail: " + email +
-                "\n*********************";
+        return firstName + " " + lastName + "\n" +
+                street + "\n" +
+                city + ", " + state + " " + zip + "\n" +
+                email + "\n" +
+                phone + "\n";
     }
 
     public void setFirstName(String firstName) {

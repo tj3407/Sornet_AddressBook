@@ -2,6 +2,7 @@ package com.project1;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Scanner;
 
 /**
  * Holds a collection of objects of the class AddressEntry
@@ -22,8 +23,16 @@ public class AddressBook {
     }
 
     public void add(AddressEntry entry) {
-        // add the entry to the AddressEntry ArrayList
         addressEntryList.add(entry);
+    }
+
+    public void readFromFile() {
+    }
+
+    public void remove() {
+    }
+
+    public void find() {
     }
 }
 
