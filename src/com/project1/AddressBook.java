@@ -56,10 +56,14 @@ public class AddressBook {
     }
 
     public void remove(AddressEntry entry) {
+        addressEntryList.remove(entry);
     }
 
-    public Stream<AddressEntry> find(String startOf_lastName) {
-        Stream<AddressEntry> result = addressEntryList.stream().filter(entry -> entry.getLastName().contains(startOf_lastName));
+    public ArrayList<AddressEntry> find(String startOf_lastName) {
+        Stream<AddressEntry> stream = addressEntryList.stream().filter(entry -> entry.getLastName().contains(startOf_lastName));
+        ArrayList<AddressEntry> result = new ArrayList<>();
+
+        stream.forEach(s -> result.add(s));
         return result;
     }
 }

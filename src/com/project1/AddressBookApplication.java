@@ -38,6 +38,7 @@ public class AddressBookApplication {
                     ab.list();
                     break;
                 case 'f':
+                    System.out.println("Goodbye!");
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again.");
@@ -59,13 +60,15 @@ public class AddressBookApplication {
         System.out.println("Enter in all or the beginning of the Last Name of the contact you wish to find:");
         System.out.print("> ");
         String lastName = input.nextLine();
-        Stream<AddressEntry> stream = ab.find(lastName);
-        ArrayList<AddressEntry> result = new ArrayList<>();
+        ArrayList<AddressEntry> result = ab.find(lastName);
 
-        stream.forEach(s -> result.add(s));
-        System.out.println("The following " + result.size() + " entries were found in the address book for a last name starting with " + lastName);
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println(i+1 + ": " + result.get(i).toString());
+        if (result.size() > 0) {
+            System.out.println("The following " + result.size() + " entries were found in the address book for a last name starting with " + lastName);
+            for (int i = 0; i < result.size(); i++) {
+                System.out.println(i+1 + ": " + result.get(i).toString());
+            }
+        } else {
+            System.out.println("No entries found.");
         }
     }
 
@@ -76,26 +79,39 @@ public class AddressBookApplication {
         System.out.println("Enter in Last Name of contact to remove:");
         System.out.print("> ");
         String lastName = input.nextLine();
-        Stream<AddressEntry> entries = ab.find(lastName);
+        ArrayList<AddressEntry> result = ab.find(lastName);
 
-        System.out.println("The following " + entries.count() + " entries were found in the address book");
+        if (result.size() <= 0) {
+            System.out.println("No entries found");
+            return;
+        }
+
+        System.out.println("The following " + result.size() + " entries were found in the address book");
         System.out.println("Select number of entry you wish to remove:");
 
-        for (int i = 1; i <= entries.count(); i++) {
+        for (int i = 1; i <= result.size(); i++) {
             System.out.print(i + ": ");
-            System.out.println(entries.count());
+            System.out.println(result.get(i-1));
         }
 
         System.out.print("> ");
         selection = Integer.parseInt(input.nextLine());
 
-        System.out.println("Hit y to remove the following entry or n to return to main menu");
-        System.out.println(entries.findFirst().toString());
+        while (selection <= 0 || selection > result.size()) {
+            System.out.println("Invalid selection. Please try again");
+            System.out.print("> ");
+            selection = Integer.parseInt(input.nextLine());
+        };
+
+        System.out.println("Hit y to remove the following entry or n to return to main menu:");
+        System.out.println(result.get(selection-1));
         System.out.print("> ");
         isRemove = input.next().charAt(0);
 
         if (isRemove == 'y') {
-//            ab.remove(entries.get(selection-1));
+            AddressEntry contact = result.get(selection-1);
+            ab.remove(contact);
+            System.out.println("You have successfully removed the " + contact.getFirstName() + " " + contact.getLastName() + " contact");
         }
     }
 
