@@ -2,6 +2,7 @@ package com.project1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * Creates a new instance of an AddressBook object and adds 2 AddressEntry with the given data
@@ -38,6 +39,9 @@ public class AddressBookApplication {
                     break;
                 case 'f':
                     break;
+                default:
+                    System.out.println("Invalid selection. Please try again.");
+                    break;
             }
         }
     }
@@ -51,6 +55,18 @@ public class AddressBookApplication {
     }
 
     private static void findEntry(AddressBook ab) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter in all or the beginning of the Last Name of the contact you wish to find:");
+        System.out.print("> ");
+        String lastName = input.nextLine();
+        Stream<AddressEntry> stream = ab.find(lastName);
+        ArrayList<AddressEntry> result = new ArrayList<>();
+
+        stream.forEach(s -> result.add(s));
+        System.out.println("The following " + result.size() + " entries were found in the address book for a last name starting with " + lastName);
+        for (int i = 0; i < result.size(); i++) {
+            System.out.println(i+1 + ": " + result.get(i).toString());
+        }
     }
 
     private static void removeEntry(AddressBook ab) {
@@ -60,26 +76,26 @@ public class AddressBookApplication {
         System.out.println("Enter in Last Name of contact to remove:");
         System.out.print("> ");
         String lastName = input.nextLine();
-        ArrayList<AddressEntry> entries = ab.find(lastName);
+        Stream<AddressEntry> entries = ab.find(lastName);
 
-        System.out.println("The following " + entries.size() + " entries were found in the address book");
+        System.out.println("The following " + entries.count() + " entries were found in the address book");
         System.out.println("Select number of entry you wish to remove:");
 
-        for (int i = 1; i <= entries.size(); i++) {
+        for (int i = 1; i <= entries.count(); i++) {
             System.out.print(i + ": ");
-            System.out.println(entries.get(i-1).toString());
+            System.out.println(entries.count());
         }
 
         System.out.print("> ");
         selection = Integer.parseInt(input.nextLine());
 
         System.out.println("Hit y to remove the following entry or n to return to main menu");
-        System.out.println(entries.get(selection-1).toString());
+        System.out.println(entries.findFirst().toString());
         System.out.print("> ");
         isRemove = input.next().charAt(0);
 
         if (isRemove == 'y') {
-            ab.remove(entries.get(selection-1));
+//            ab.remove(entries.get(selection-1));
         }
     }
 

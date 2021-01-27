@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Holds a collection of objects of the class AddressEntry
@@ -57,8 +58,9 @@ public class AddressBook {
     public void remove(AddressEntry entry) {
     }
 
-    public ArrayList<AddressEntry> find(String startOf_lastName) {
-        return addressEntryList;
+    public Stream<AddressEntry> find(String startOf_lastName) {
+        Stream<AddressEntry> result = addressEntryList.stream().filter(entry -> entry.getLastName().contains(startOf_lastName));
+        return result;
     }
 }
 
