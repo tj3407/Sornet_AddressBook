@@ -30,10 +30,11 @@ public class AddressBook {
     public void readFromFile() {
     }
 
-    public void remove() {
+    public void remove(AddressEntry entry) {
     }
 
-    public void find() {
+    public ArrayList<AddressEntry> find(String startOf_lastName) {
+        return addressEntryList;
     }
 }
 

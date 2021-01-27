@@ -1,5 +1,6 @@
 package com.project1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -27,10 +28,10 @@ public class AddressBookApplication {
                     addEntry(ab);
                     break;
                 case 'c':
-                    ab.remove();
+                    removeEntry(ab);
                     break;
                 case 'd':
-                    ab.find();
+                    findEntry(ab);
                     break;
                 case 'e':
                     ab.list();
@@ -41,8 +42,40 @@ public class AddressBookApplication {
         }
     }
 
-    private static void addEntry(AddressBook ab) {
+    private static void findEntry(AddressBook ab) {
+    }
+
+    private static void removeEntry(AddressBook ab) {
         Scanner input = new Scanner(System.in);
+        int selection;
+        char isRemove;
+        System.out.println("Enter in Last Name of contact to remove:");
+        System.out.print("> ");
+        String lastName = input.nextLine();
+        ArrayList<AddressEntry> entries = ab.find(lastName);
+
+        System.out.println("The following " + entries.size() + " entries were found in the address book");
+        System.out.println("Select number of entry you wish to remove:");
+
+        for (int i = 1; i <= entries.size(); i++) {
+            System.out.print(i + ": ");
+            System.out.println(entries.get(i-1).toString());
+        }
+
+        System.out.print("> ");
+        selection = Integer.parseInt(input.nextLine());
+
+        System.out.println("Hit y to remove the following entry or n to return to main menu");
+        System.out.println(entries.get(selection-1).toString());
+        System.out.print("> ");
+        isRemove = input.next().charAt(0);
+
+        if (isRemove == 'y') {
+            ab.remove(entries.get(selection-1));
+        }
+    }
+
+    private static void addEntry(AddressBook ab) {
         AddressEntry entry = new AddressEntry();
         String firstName;
         String lastName;
@@ -53,36 +86,28 @@ public class AddressBookApplication {
         String phone;
         String email;
 
-        Menu.prompt_FirstName();
-        firstName = input.nextLine();
+        firstName = Menu.prompt_FirstName();
         entry.setFirstName(firstName);
 
-        Menu.prompt_LastName();
-        lastName = input.nextLine();
+        lastName = Menu.prompt_LastName();
         entry.setLastName(lastName);
 
-        Menu.prompt_Street();
-        street = input.nextLine();
+        street = Menu.prompt_Street();
         entry.setStreet(street);
 
-        Menu.prompt_City();
-        city = input.nextLine();
+        city = Menu.prompt_City();
         entry.setCity(city);
 
-        Menu.prompt_State();
-        state = input.nextLine();
+        state = Menu.prompt_State();
         entry.setState(state);
 
-        Menu.prompt_Zip();
-        zip = Integer.parseInt(input.nextLine());
+        zip = Menu.prompt_Zip();
         entry.setZip(zip);
 
-        Menu.prompt_Telephone();
-        phone = input.nextLine();
+        phone = Menu.prompt_Telephone();
         entry.setPhone(phone);
 
-        Menu.prompt_Email();
-        email = input.nextLine();
+        email = Menu.prompt_Email();
         entry.setEmail(email);
 
         ab.add(entry);

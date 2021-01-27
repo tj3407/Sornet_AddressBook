@@ -1,37 +1,48 @@
 package com.project1;
 
+import java.util.Scanner;
+
 public class Menu {
-    public static void prompt_FirstName() {
+    private static Scanner input = new Scanner(System.in);
+    public static String prompt_FirstName() {
         System.out.println("First Name:");
         System.out.print("> ");
+        return input.nextLine();
     }
-    public static void prompt_LastName() {
+    public static String prompt_LastName() {
         System.out.println("Last Name:");
         System.out.print("> ");
+        return input.nextLine();
     }
-    public static void prompt_Street() {
+    public static String prompt_Street() {
         System.out.println("Street:");
         System.out.print("> ");
+        return input.nextLine();
     }
-    public static void prompt_City() {
+    public static String prompt_City() {
         System.out.println("City:");
         System.out.print("> ");
+        return input.nextLine();
     }
-    public static void prompt_State() {
+    public static String prompt_State() {
         System.out.println("State:");
         System.out.print("> ");
+        return input.nextLine();
     }
-    public static void prompt_Zip() {
+    public static int prompt_Zip() {
         System.out.println("Zip:");
         System.out.print("> ");
+        return Integer.parseInt(input.nextLine());
     }
-    public static void prompt_Telephone() {
+    public static String prompt_Telephone() {
         System.out.println("Telephone:");
         System.out.print("> ");
+        return input.nextLine();
     }
-    public static void prompt_Email() {
+    public static String prompt_Email() {
         System.out.println("Email:");
         System.out.print("> ");
+        return input.nextLine();
     }
     public static void prompt_Menu() {
         System.out.println("******************");
