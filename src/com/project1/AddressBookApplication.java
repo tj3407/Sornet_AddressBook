@@ -22,7 +22,7 @@ public class AddressBookApplication {
 
             switch(selection) {
                 case 'a':
-                    ab.readFromFile();
+                    readFromFile(ab);
                     break;
                 case 'b':
                     addEntry(ab);
@@ -40,6 +40,14 @@ public class AddressBookApplication {
                     break;
             }
         }
+    }
+
+    private static void readFromFile(AddressBook ab) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter in filename:");
+        System.out.print("> ");
+
+        ab.readFromFile(input.nextLine());
     }
 
     private static void findEntry(AddressBook ab) {

@@ -1,8 +1,9 @@
 package com.project1;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 /**
  * Holds a collection of objects of the class AddressEntry
@@ -27,7 +28,30 @@ public class AddressBook {
         addressEntryList.add(entry);
     }
 
-    public void readFromFile() {
+    public void readFromFile(String path) {
+        try {
+            ArrayList<String> list = new ArrayList<String>(Files.readAllLines(Paths.get(path)));
+
+            for (String info: list) {
+                AddressEntry entry = new AddressEntry();
+                ArrayList<String> entryList = new ArrayList<String>(Arrays.asList(info.split(",")));
+                entry.setFirstName(entryList.get(0).trim());
+                entry.setLastName(entryList.get(1).trim());
+                entry.setStreet(entryList.get(2).trim());
+                entry.setCity(entryList.get(3).trim());
+                entry.setState(entryList.get(4).trim());
+                entry.setZip(Integer.parseInt(entryList.get(5).trim()));
+                entry.setPhone(entryList.get(6).trim());
+                entry.setEmail(entryList.get(7).trim());
+                add(entry);
+            }
+
+            System.out.println("Read in " + list.size() + " new Addresses. Successfully loaded");
+            System.out.println("There are currently " + addressEntryList.size() + " Addresses in the Address Book.");
+        }
+        catch (IOException e) {
+
+        }
     }
 
     public void remove(AddressEntry entry) {
