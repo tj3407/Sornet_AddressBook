@@ -44,7 +44,8 @@ public class Menu {
         System.out.print("> ");
         return input.nextLine();
     }
-    public static void prompt_Menu() {
+    public static char prompt_Menu() {
+        Scanner input = new Scanner(System.in);
         System.out.println("******************");
         System.out.println("Please enter in your menu selection");
         System.out.println("a) Loading From File");
@@ -55,5 +56,6 @@ public class Menu {
         System.out.println("f) Quit");
         System.out.println("******************");
         System.out.print("> ");
+        return input.nextLine().charAt(0);
     }
 }

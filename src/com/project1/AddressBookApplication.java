@@ -9,18 +9,14 @@ import java.util.stream.Stream;
  * then lists the entries in the output
  */
 public class AddressBookApplication {
-    private static char selection;
-
     public static void main(String[] args) {
         // Create an instance of AddressBook
         AddressBook ab = new AddressBook();
 
-        Scanner input = new Scanner(System.in);
+        // Prompt for menu and retrieve selection
+        char selection = Menu.prompt_Menu();
 
         while (selection != 'f') {
-            Menu.prompt_Menu();
-            selection = input.next().charAt(0);
-
             switch(selection) {
                 case 'a':
                     readFromFile(ab);
@@ -44,6 +40,8 @@ public class AddressBookApplication {
                     System.out.println("Invalid selection. Please try again.");
                     break;
             }
+
+            selection = Menu.prompt_Menu();
         }
     }
 
