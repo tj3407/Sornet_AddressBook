@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * Contains an list method to iterate through an ArrayList of AddressEntry
  */
 public class AddressBook {
-    private ArrayList<AddressEntry> addressEntryList = new ArrayList<AddressEntry>();
+    private ArrayList<AddressEntry> addressEntryList = new ArrayList<>();
 
     public void list() {
         // Optional sorting of ArrayList by First Name
@@ -31,11 +31,11 @@ public class AddressBook {
 
     public void readFromFile(String path) {
         try {
-            ArrayList<String> list = new ArrayList<String>(Files.readAllLines(Paths.get(path)));
+            ArrayList<String> list = new ArrayList<>(Files.readAllLines(Paths.get(path)));
 
             for (String info: list) {
                 AddressEntry entry = new AddressEntry();
-                ArrayList<String> entryList = new ArrayList<String>(Arrays.asList(info.split(",")));
+                ArrayList<String> entryList = new ArrayList<>(Arrays.asList(info.split(",")));
                 entry.setFirstName(entryList.get(0).trim());
                 entry.setLastName(entryList.get(1).trim());
                 entry.setStreet(entryList.get(2).trim());

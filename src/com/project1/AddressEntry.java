@@ -17,15 +17,15 @@ public class AddressEntry {
     // Constructors
     AddressEntry() {}
 
-    AddressEntry(String fName, String lName, String str, String cit, String sta, int z, String ph, String em) {
-        firstName = fName;
-        lastName = lName;
-        street = str;
-        city = cit;
-        state = sta;
-        zip = z;
-        phone = ph;
-        email = em;
+    AddressEntry(String firstName, String lastName, String street, String city, String state, int zip, String phone, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phone = phone;
+        this.email = email;
     }
 
     @Override
