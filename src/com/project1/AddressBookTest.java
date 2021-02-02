@@ -12,6 +12,10 @@ class AddressBookTest {
 
     @Test
     void add() {
+        AddressBook ab = new AddressBook();
+        AddressEntry entry = new AddressEntry("John", "Doe", "Mission", "Hayward", "CA", 94544, "555-555-5555", "test@test.com");
+        ab.add(entry);
+        assertEquals(ab.find("Doe").get(0), entry);
     }
 
     @Test
@@ -20,6 +24,15 @@ class AddressBookTest {
 
     @Test
     void remove() {
+        AddressBook ab = new AddressBook();
+        AddressEntry entry1 = new AddressEntry("John", "Doe", "Mission", "Hayward", "CA", 94544, "555-555-5555", "test@test.com");
+        AddressEntry entry2 = new AddressEntry("John", "Deer", "Mission", "Hayward", "CA", 94544, "555-555-5555", "test@test.com");
+        ab.add(entry1);
+        ab.add(entry2);
+        AddressEntry entryToRemove = ab.find("Doe").get(0);
+
+        ab.remove(entryToRemove);
+        assertEquals(ab.getAddressEntryList().size(), 1);
     }
 
     @Test

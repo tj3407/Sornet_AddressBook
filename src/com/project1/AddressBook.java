@@ -66,5 +66,9 @@ public class AddressBook {
         stream.forEach(s -> result.add(s));
         return result;
     }
+
+    public ArrayList<AddressEntry> getAddressEntryList() {
+        return addressEntryList;
+    }
 }
 
