@@ -39,11 +39,31 @@ class AddressEntryTest {
     }
 
     @Test
-    void setLastName() {
+    void test1SetLastName() {
+        AddressEntry entry = new AddressEntry();
+        String name1 = "Doe";
+        entry.setLastName(name1);
+        assertEquals(entry.getLastName(), name1);
     }
 
     @Test
-    void getLastName() {
+    void test2SetLastName() {
+        AddressEntry entry = new AddressEntry();
+        String name1 = "Keaton";
+        entry.setLastName(name1);
+        assertEquals(entry.getLastName(), name1);
+    }
+
+    @Test
+    void test1GetLastName() {
+        AddressEntry entry = new AddressEntry("Lex", "Doe", "Mission", "Hayward", "CA", 94544, "444-444-4444", "test@test.com");
+        assertEquals(entry.getLastName(), "Doe");
+    }
+
+    @Test
+    void test2GetLastName() {
+        AddressEntry entry = new AddressEntry("Lex", "Keaton", "Mission", "Hayward", "CA", 94544, "444-444-4444", "test@test.com");
+        assertEquals(entry.getLastName(), "Keaton");
     }
 
     @Test
