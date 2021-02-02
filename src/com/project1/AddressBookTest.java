@@ -40,5 +40,9 @@ class AddressBookTest {
 
     @Test
     void testFind() {
+        AddressBook ab = new AddressBook();
+        ab.readFromFile("/Users/tj3407/AddressInputDataFile.txt");
+        AddressEntry entry = ab.find("Doe").get(0);
+        assertEquals(entry, ab.getAddressEntryList().get(0));
     }
 }
