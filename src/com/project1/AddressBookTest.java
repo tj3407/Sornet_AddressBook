@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class AddressBookTest {
 
     @Test
-    void list() {
+    void testList() {
     }
 
     @Test
-    void add() {
+    void testAdd() {
         AddressBook ab = new AddressBook();
         AddressEntry entry = new AddressEntry("John", "Doe", "Mission", "Hayward", "CA", 94544, "555-555-5555", "test@test.com");
         ab.add(entry);
@@ -19,11 +19,14 @@ class AddressBookTest {
     }
 
     @Test
-    void readFromFile() {
+    void testReadFromFile() {
+        AddressBook ab = new AddressBook();
+        ab.readFromFile("/Users/tj3407/AddressInputDataFile.txt");
+        assertEquals(ab.getAddressEntryList().size(), 3);
     }
 
     @Test
-    void remove() {
+    void testRemove() {
         AddressBook ab = new AddressBook();
         AddressEntry entry1 = new AddressEntry("John", "Doe", "Mission", "Hayward", "CA", 94544, "555-555-5555", "test@test.com");
         AddressEntry entry2 = new AddressEntry("John", "Deer", "Mission", "Hayward", "CA", 94544, "555-555-5555", "test@test.com");
@@ -36,6 +39,6 @@ class AddressBookTest {
     }
 
     @Test
-    void find() {
+    void testFind() {
     }
 }
