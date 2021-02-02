@@ -11,11 +11,31 @@ class AddressEntryTest {
     }
 
     @Test
-    void setFirstName() {
+    void test1SetFirstName() {
+        AddressEntry entry = new AddressEntry();
+        String name1 = "John";
+        entry.setFirstName(name1);
+        assertEquals(entry.getFirstName(), name1);
     }
 
     @Test
-    void getFirstName() {
+    void test2SetFirstName() {
+        AddressEntry entry = new AddressEntry();
+        String name1 = "James";
+        entry.setFirstName(name1);
+        assertEquals(entry.getFirstName(), name1);
+    }
+
+    @Test
+    void test1GetFirstName() {
+        AddressEntry entry = new AddressEntry("John", "Doe", "Mission", "Hayward", "CA", 94544, "444-444-4444", "test@test.com");
+        assertEquals(entry.getFirstName(), "John");
+    }
+
+    @Test
+    void test2GetFirstName() {
+        AddressEntry entry = new AddressEntry("Lex", "Doe", "Mission", "Hayward", "CA", 94544, "444-444-4444", "test@test.com");
+        assertEquals(entry.getFirstName(), "Lex");
     }
 
     @Test
