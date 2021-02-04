@@ -2,13 +2,17 @@ package com.project1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 /**
- * Creates a new instance of an AddressBook object and adds 2 AddressEntry with the given data
- * then lists the entries in the output
+ * Class that contains the main method to run the Address Book application.
+ * This class creates a single AddressBook instance that is used throughout the
+ * life of the application
  */
 public class AddressBookApplication {
+    /**
+     * Main method to run the Address Book application
+     * @param args an array of String(s)
+     */
     public static void main(String[] args) {
         // Create an instance of AddressBook
         AddressBook ab = new AddressBook();
@@ -45,6 +49,10 @@ public class AddressBookApplication {
         }
     }
 
+    /**
+     * Method to read a string for the location of the file to be loaded
+     * @param ab an AddressBook instance
+     */
     private static void readFromFile(AddressBook ab) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter in filename:");
@@ -53,6 +61,10 @@ public class AddressBookApplication {
         ab.readFromFile(input.nextLine());
     }
 
+    /**
+     * Method to find a user by last name
+     * @param ab an AddressBook instance
+     */
     private static void findEntry(AddressBook ab) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter in all or the beginning of the Last Name of the contact you wish to find:");
@@ -70,6 +82,10 @@ public class AddressBookApplication {
         }
     }
 
+    /**
+     * Method to remove an entry in an AddressBook by last name
+     * @param ab an AddressBook instance
+     */
     private static void removeEntry(AddressBook ab) {
         Scanner input = new Scanner(System.in);
         int selection;
@@ -113,6 +129,11 @@ public class AddressBookApplication {
         }
     }
 
+    /**
+     * Method to prompt user for a single AddressEntry detail and adds to
+     * our AddressBook instance
+     * @param ab an AddressBook instance
+     */
     private static void addEntry(AddressBook ab) {
         AddressEntry entry = new AddressEntry();
         String firstName;

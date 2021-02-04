@@ -7,13 +7,18 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
- * Holds a collection of objects of the class AddressEntry
- * Contains an add method to add new AddressEntry
- * Contains an list method to iterate through an ArrayList of AddressEntry
+ * Class that holds a collection of objects of the class AddressEntry
+ * Contains the methods to perform operations against the AddressEntry
+ * collection such as add, remove, readFromFile, list, find, and
+ * getAddressEntry
  */
 public class AddressBook {
     private ArrayList<AddressEntry> addressEntryList = new ArrayList<>();
 
+    /**
+     * Method to iterate through addressEntryList array and display
+     * a string to output.
+     */
     public void list() {
         // Optional sorting of ArrayList by First Name
         addressEntryList.sort(Comparator.comparing(AddressEntry::getFirstName));
@@ -25,10 +30,19 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Method that adds an AddressEntry object into our AddressBook array
+     * @param entry an AddressEntry object
+     */
     public void add(AddressEntry entry) {
         addressEntryList.add(entry);
     }
 
+    /**
+     * Method that reads data from a file, creates an AddressEntry object and adds
+     * the object to our AddressBook array
+     * @param path a String to indicate the location of the file to be read
+     */
     public void readFromFile(String path) {
         try {
             ArrayList<String> list = new ArrayList<>(Files.readAllLines(Paths.get(path)));
@@ -55,10 +69,21 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Method to remove a single AddressEntry array object from our AddressBook array
+     * @param entry an AddressEntry object
+     */
     public void remove(AddressEntry entry) {
         addressEntryList.remove(entry);
     }
 
+    /**
+     * Method to find entries in our AddressBook array by lastName and returns the
+     * result, if any
+     * @param startOf_lastName a String that indicates the start of a person's last name in our
+     *                         AddressBook array
+     * @return the AddressEntry object(s) which contains lastName === startOf_lastName
+     */
     public ArrayList<AddressEntry> find(String startOf_lastName) {
         Stream<AddressEntry> stream = addressEntryList.stream().filter(entry -> entry.getLastName().contains(startOf_lastName));
         ArrayList<AddressEntry> result = new ArrayList<>();
@@ -67,6 +92,10 @@ public class AddressBook {
         return result;
     }
 
+    /**
+     * Method to retrieve the AddressBook array
+     * @return the AddressBook array
+     */
     public ArrayList<AddressEntry> getAddressEntryList() {
         return addressEntryList;
     }
