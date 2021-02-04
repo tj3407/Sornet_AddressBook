@@ -7,9 +7,6 @@ package com.project1;
  * values.
  */
 public class AddressEntry {
-    /**
-     * Private fields
-     */
     private String firstName;
     private String lastName;
     private String street;
