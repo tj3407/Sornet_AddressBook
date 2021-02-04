@@ -85,11 +85,15 @@ public class AddressBook {
      * @return the AddressEntry object(s) which contains lastName === startOf_lastName
      */
     public ArrayList<AddressEntry> find(String startOf_lastName) {
-        Stream<AddressEntry> stream = addressEntryList.stream().filter(entry -> entry.getLastName().contains(startOf_lastName));
-        ArrayList<AddressEntry> result = new ArrayList<>();
+        ArrayList<AddressEntry> filteredList = new ArrayList<>();
 
-        stream.forEach(s -> result.add(s));
-        return result;
+        for (int i = 0; i < addressEntryList.size(); i++) {
+            if (addressEntryList.get(i).getLastName().contains(startOf_lastName)) {
+                filteredList.add(addressEntryList.get(i));
+            }
+        }
+
+        return filteredList;
     }
 
     /**
