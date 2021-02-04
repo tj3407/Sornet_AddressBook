@@ -2,14 +2,17 @@ package com.project1;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class to test AddressBook class
+ */
 class AddressBookTest {
-
-    @Test
-    void testList() {
-    }
-
+    /**
+     * Method to test the add function in AddressBook
+     */
     @Test
     void testAdd() {
         AddressBook ab = new AddressBook();
@@ -18,13 +21,19 @@ class AddressBookTest {
         assertEquals(ab.find("Doe").get(0), entry);
     }
 
+    /**
+     * Method to test the readFromFile function in AddressBook
+     */
     @Test
     void testReadFromFile() {
         AddressBook ab = new AddressBook();
         ab.readFromFile("/Users/tj3407/AddressInputDataFile.txt");
-        assertEquals(ab.getAddressEntryList().size(), 3);
+        assertEquals(ab.getAddressEntryList().size(), 5);
     }
 
+    /**
+     * Method to test the remove function in AddressBook
+     */
     @Test
     void testRemove() {
         AddressBook ab = new AddressBook();
@@ -38,11 +47,25 @@ class AddressBookTest {
         assertEquals(ab.getAddressEntryList().size(), 1);
     }
 
+    /**
+     * Method to test the find method in AddressBook
+     */
     @Test
     void testFind() {
         AddressBook ab = new AddressBook();
         ab.readFromFile("/Users/tj3407/AddressInputDataFile.txt");
         AddressEntry entry = ab.find("Doe").get(0);
         assertEquals(entry, ab.getAddressEntryList().get(0));
+    }
+
+    /**
+     * Method to test the getAddressEntryList method in AddressBook
+     */
+    @Test
+    void testGetAddressEntryList() {
+        AddressBook ab = new AddressBook();
+        ab.readFromFile("/Users/tj3407/AddressInputDataFile.txt");
+        ArrayList<AddressEntry> entries = ab.getAddressEntryList();
+        assertEquals(entries, ab.getAddressEntryList());
     }
 }

@@ -65,7 +65,7 @@ public class AddressBook {
             System.out.println("There are currently " + addressEntryList.size() + " Addresses in the Address Book.");
         }
         catch (IOException e) {
-
+            System.out.println(e);
         }
     }
 
