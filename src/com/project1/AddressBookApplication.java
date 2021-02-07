@@ -37,15 +37,16 @@ public class AddressBookApplication {
                 case 'e':
                     ab.list();
                     break;
-                case 'f':
-                    System.out.println("Goodbye!");
-                    break;
                 default:
                     System.out.println("Invalid selection. Please try again.");
                     break;
             }
 
             selection = Menu.prompt_Menu();
+        }
+
+        if (selection == 'f') {
+            System.out.println("Goodbye!");
         }
     }
 
