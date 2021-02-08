@@ -5,6 +5,8 @@ package com.project1;
  * Overrides a toString() method that prints out all the data of an entry
  * and contains getters and setters to set and retrieve individual AddressEntry
  * values.
+ *
+ * @author Tey Jon Sornet
  */
 public class AddressEntry {
     private String firstName;

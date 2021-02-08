@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class to test AddressEntry class
+ *
+ * @author Tey Jon Sornet
  */
 class AddressEntryTest {
     /**

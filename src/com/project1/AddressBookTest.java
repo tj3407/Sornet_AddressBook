@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class to test AddressBook class
+ *
+ * @author Tey Jon Sornet
  */
 class AddressBookTest {
     /**

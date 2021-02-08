@@ -11,6 +11,8 @@ import java.util.stream.Stream;
  * Contains the methods to perform operations against the AddressEntry
  * collection such as add, remove, readFromFile, list, find, and
  * getAddressEntry
+ *
+ * @author Tey Jon Sornet
  */
 public class AddressBook {
     private ArrayList<AddressEntry> addressEntryList = new ArrayList<>();

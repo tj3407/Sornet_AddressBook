@@ -5,6 +5,8 @@ import java.util.Scanner;
 /**
  * Class that contains the prompts used to interact with a user
  * throughout the application.
+ *
+ * @author Tey Jon Sornet
  */
 public class Menu {
     /**

@@ -7,6 +7,8 @@ import java.util.Scanner;
  * Class that contains the main method to run the Address Book application.
  * This class creates a single AddressBook instance that is used throughout the
  * life of the application
+ *
+ * @author Tey Jon Sornet
  */
 public class AddressBookApplication {
     /**

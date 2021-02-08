@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class to test Menu class
+ *
+ * @author Tey Jon Sornet
  */
 class MenuTest {
 
