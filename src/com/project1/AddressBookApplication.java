@@ -1,5 +1,6 @@
 package com.project1;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class AddressBookApplication {
         AddressBook ab = new AddressBook();
 
         // Prompt for menu and retrieve selection
-        char selection = Menu.prompt_Menu();
+        char selection = Menu.prompt_Menu(System.in);
 
         while (selection != 'f') {
             switch(selection) {
@@ -44,7 +45,7 @@ public class AddressBookApplication {
                     break;
             }
 
-            selection = Menu.prompt_Menu();
+            selection = Menu.prompt_Menu(System.in);
         }
 
         if (selection == 'f') {
@@ -148,28 +149,28 @@ public class AddressBookApplication {
         String phone;
         String email;
 
-        firstName = Menu.prompt_FirstName();
+        firstName = Menu.prompt_FirstName(System.in);
         entry.setFirstName(firstName);
 
-        lastName = Menu.prompt_LastName();
+        lastName = Menu.prompt_LastName(System.in);
         entry.setLastName(lastName);
 
-        street = Menu.prompt_Street();
+        street = Menu.prompt_Street(System.in);
         entry.setStreet(street);
 
-        city = Menu.prompt_City();
+        city = Menu.prompt_City(System.in);
         entry.setCity(city);
 
-        state = Menu.prompt_State();
+        state = Menu.prompt_State(System.in);
         entry.setState(state);
 
-        zip = Menu.prompt_Zip();
+        zip = Menu.prompt_Zip(System.in);
         entry.setZip(zip);
 
-        phone = Menu.prompt_Telephone();
+        phone = Menu.prompt_Telephone(System.in);
         entry.setPhone(phone);
 
-        email = Menu.prompt_Email();
+        email = Menu.prompt_Email(System.in);
         entry.setEmail(email);
 
         ab.add(entry);

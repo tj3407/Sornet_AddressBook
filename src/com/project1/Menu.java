@@ -1,5 +1,7 @@
 package com.project1;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -10,15 +12,11 @@ import java.util.Scanner;
  */
 public class Menu {
     /**
-     * Field
-     */
-    private static Scanner input = new Scanner(System.in);
-
-    /**
      * Method that prompts user to enter first name
      * @return a String containing first name value
      */
-    public static String prompt_FirstName() {
+    public static String prompt_FirstName(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("First Name:");
         System.out.print("> ");
         return input.nextLine();
@@ -28,7 +26,8 @@ public class Menu {
      * Method that prompts user to enter last name
      * @return a String containing last name value
      */
-    public static String prompt_LastName() {
+    public static String prompt_LastName(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("Last Name:");
         System.out.print("> ");
         return input.nextLine();
@@ -38,7 +37,8 @@ public class Menu {
      * Method that prompts user to enter street name
      * @return a String containing street name value
      */
-    public static String prompt_Street() {
+    public static String prompt_Street(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("Street:");
         System.out.print("> ");
         return input.nextLine();
@@ -48,7 +48,8 @@ public class Menu {
      * Method that prompts user to enter city name
      * @return a String containing city name value
      */
-    public static String prompt_City() {
+    public static String prompt_City(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("City:");
         System.out.print("> ");
         return input.nextLine();
@@ -58,7 +59,8 @@ public class Menu {
      * Method that prompts user to enter state
      * @return a String containing state value
      */
-    public static String prompt_State() {
+    public static String prompt_State(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("State:");
         System.out.print("> ");
         return input.nextLine();
@@ -68,7 +70,8 @@ public class Menu {
      * Method that prompts user to enter zip code
      * @return an int containing zip code value
      */
-    public static int prompt_Zip() {
+    public static int prompt_Zip(InputStream in) {
+        Scanner input = new Scanner(in);
         String zip;
 
         do {
@@ -89,7 +92,8 @@ public class Menu {
      * Method that prompts user to enter phone number
      * @return a String containing phone number value
      */
-    public static String prompt_Telephone() {
+    public static String prompt_Telephone(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("Telephone:");
         System.out.print("> ");
         return input.nextLine();
@@ -99,7 +103,8 @@ public class Menu {
      * Method that prompts user to enter email
      * @return a String containing email value
      */
-    public static String prompt_Email() {
+    public static String prompt_Email(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("Email:");
         System.out.print("> ");
         return input.nextLine();
@@ -109,8 +114,8 @@ public class Menu {
      * Method to prompt a user to enter a selection from a menu
      * @return a char that contains the user's selected option
      */
-    public static char prompt_Menu() {
-        Scanner input = new Scanner(System.in);
+    public static char prompt_Menu(InputStream in) {
+        Scanner input = new Scanner(in);
         System.out.println("******************");
         System.out.println("Please enter in your menu selection");
         System.out.println("a) Loading From File");
