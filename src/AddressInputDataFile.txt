@@ -1,0 +1,5 @@
+John, Doe, Mission Blvd, Hayward, CA, 94544, 444-444-4444, john@doe.com
+Jim, Chen, 5th Ave, New York, NY, 10054, 333-333-3333, jim@chen.com
+Kim, Doyle, A St, Austin, TX, 30045, 222-222-3454, kim@doyle.com
+Jane, Goodall, Main St, Miami, FL, 22345, 555-555-2323, Jane@goodall.com
+Richard, Bates, Downtown Way, Chicago, IL, 12115, 777-777-3343, richard@bates.com
