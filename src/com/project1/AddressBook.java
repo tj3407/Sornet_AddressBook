@@ -90,7 +90,7 @@ public class AddressBook {
         ArrayList<AddressEntry> filteredList = new ArrayList<>();
 
         for (int i = 0; i < addressEntryList.size(); i++) {
-            if (addressEntryList.get(i).getLastName().contains(startOf_lastName)) {
+            if (addressEntryList.get(i).getLastName().toLowerCase().startsWith(startOf_lastName.toLowerCase())) {
                 filteredList.add(addressEntryList.get(i));
             }
         }
