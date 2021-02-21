@@ -1,7 +1,6 @@
 package com.project1;
 
 import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -84,7 +83,6 @@ public class Menu {
             }
         } while(!(zip.matches("\\d+")));
 
-//        return Integer.parseInt(input.nextLine());
         return Integer.parseInt(zip);
     }
 

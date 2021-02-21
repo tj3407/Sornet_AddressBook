@@ -9,20 +9,63 @@ package com.project1;
  * @author Tey Jon Sornet
  */
 public class AddressEntry {
+    /**
+     * User first name
+     */
     private String firstName;
+
+    /**
+     * User last name
+     */
     private String lastName;
+
+    /**
+     * User street name
+     */
     private String street;
+
+    /**
+     * User city name
+     */
     private String city;
+
+    /**
+     * User state
+     */
     private String state;
+
+    /**
+     * User zip code
+     */
     private int zip;
+
+    /**
+     * User phone number
+     */
     private String phone;
+
+    /**
+     * User email address
+     */
     private String email;
 
     /**
-     * Constructors (default and custom)
+     * Default constructor
      */
     AddressEntry() {}
 
+    /**
+     * Custom constructor which takes in complete AddressEntry values
+     *
+     * @param firstName String user first name
+     * @param lastName String user last name
+     * @param street String user street name
+     * @param city String user city name
+     * @param state String user state
+     * @param zip String user zip code
+     * @param phone String user phone number
+     * @param email String user email address
+     */
     AddressEntry(String firstName, String lastName, String street, String city, String state, int zip, String phone, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

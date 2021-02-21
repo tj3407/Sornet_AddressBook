@@ -15,6 +15,9 @@ import java.util.stream.Stream;
  * @author Tey Jon Sornet
  */
 public class AddressBook {
+    /**
+     * Collection of AddressEntry objects
+     */
     private ArrayList<AddressEntry> addressEntryList = new ArrayList<>();
 
     /**
