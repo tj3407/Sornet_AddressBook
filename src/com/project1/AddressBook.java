@@ -25,8 +25,8 @@ public class AddressBook {
      * a string to output.
      */
     public void list() {
-        // Optional sorting of ArrayList by First Name
-        addressEntryList.sort(Comparator.comparing(AddressEntry::getFirstName));
+        // Sort by Last Name
+        addressEntryList.sort(Comparator.comparing(AddressEntry::getLastName));
 
         // Iterate through AddressEntry and print out the data
         for (int i = 1; i <= addressEntryList.size(); i++) {

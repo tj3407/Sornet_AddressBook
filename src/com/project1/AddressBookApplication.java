@@ -125,10 +125,16 @@ public class AddressBookApplication {
         System.out.print("> ");
         isRemove = input.next().charAt(0);
 
-        if (isRemove == 'y') {
-            AddressEntry contact = result.get(selection-1);
-            ab.remove(contact);
-            System.out.println("You have successfully removed the " + contact.getFirstName() + " " + contact.getLastName() + " contact");
+        while (isRemove != 'n') {
+            if (isRemove == 'y') {
+                AddressEntry contact = result.get(selection-1);
+                ab.remove(contact);
+                System.out.println("You have successfully removed the " + contact.getFirstName() + " " + contact.getLastName() + " contact");
+            } else {
+                System.out.println("Invalid selection. Please try again\n");
+                System.out.print("> ");
+                isRemove = input.next().charAt(0);
+            }
         }
     }
 
