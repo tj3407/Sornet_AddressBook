@@ -130,6 +130,7 @@ public class AddressBookApplication {
                 AddressEntry contact = result.get(selection-1);
                 ab.remove(contact);
                 System.out.println("You have successfully removed the " + contact.getFirstName() + " " + contact.getLastName() + " contact");
+                break;
             } else {
                 System.out.println("Invalid selection. Please try again\n");
                 System.out.print("> ");
